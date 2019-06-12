@@ -19,7 +19,7 @@ server.get('/player', function( req, res ) {
         if( error ) {
             console.log('Query Error');
         }
-        res.render( 'sql2.ejs', { content: rows });
+        res.render( 'player.ejs', { content: rows });
     });
 });
 
