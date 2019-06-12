@@ -11,9 +11,10 @@ var connection = mysql.createConnection({
     database: 'web'
 });
 
-server.get('/bat', function( req, res ) {
+server.get('/create', function( req, res ) {
     let name = req.query.sorting || '';
-    let query =　" insert into player ( name ) values ( '" + name + " ' );";
+    if (name.length ! = 0){
+        let query =　" insert into player ( name ) values ( '" + name + " ' );";
     console.log( query );
     connection.query( query, (error, rows, fields) => {
         if( error ) {
@@ -21,6 +22,7 @@ server.get('/bat', function( req, res ) {
         }
         res.render( 'sql2.ejs', { content: rows });
     });
+    };
 });
 
 
