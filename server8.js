@@ -12,8 +12,7 @@ var connection = mysql.createConnection({
 });
 
 server.get('/player', function( req, res ) {
-    let name = req.query.sorting || '';
-    if (name.length ! = 0){
+    
         let query =　"select * from player;";
     console.log( query );
     connection.query( query, (error, rows, fields) => {
@@ -22,12 +21,10 @@ server.get('/player', function( req, res ) {
         }
         res.render( 'sql2.ejs', { content: rows });
     });
-    };
 });
 
 server.get('/team', function( req, res ) {
-    let name = req.query.sorting || '';
-    if (name.length ! = 0){
+   
         let query =　"select * from team;";
     console.log( query );
     connection.query( query, (error, rows, fields) => {
@@ -36,7 +33,6 @@ server.get('/team', function( req, res ) {
         }
         res.render( 'sql2.ejs', { content: rows });
     });
-    };
 });
 
 
