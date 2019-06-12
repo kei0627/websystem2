@@ -35,6 +35,17 @@ server.get('/team', function( req, res ) {
     });
 });
 
+server.get('/batting', function( req, res ) {
+   
+        let query =　"select * from batting;";
+    console.log( query );
+    connection.query( query, (error, rows, fields) => {
+        if( error ) {
+            console.log('Query Error');
+        }
+        res.render( 'sql2.ejs', { content: rows });
+    });
+});
 
 server.get('/create', function( req, res ) {
     let name = req.query.sorting || '';
