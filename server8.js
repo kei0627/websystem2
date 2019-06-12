@@ -11,6 +11,35 @@ var connection = mysql.createConnection({
     database: 'web'
 });
 
+server.get('/player', function( req, res ) {
+    let name = req.query.sorting || '';
+    if (name.length ! = 0){
+        let query =　"select * from player;";
+    console.log( query );
+    connection.query( query, (error, rows, fields) => {
+        if( error ) {
+            console.log('Query Error');
+        }
+        res.render( 'sql2.ejs', { content: rows });
+    });
+    };
+});
+
+server.get('/team', function( req, res ) {
+    let name = req.query.sorting || '';
+    if (name.length ! = 0){
+        let query =　"select * from team;";
+    console.log( query );
+    connection.query( query, (error, rows, fields) => {
+        if( error ) {
+            console.log('Query Error');
+        }
+        res.render( 'sql2.ejs', { content: rows });
+    });
+    };
+});
+
+
 server.get('/create', function( req, res ) {
     let name = req.query.sorting || '';
     if (name.length ! = 0){
